@@ -1,7 +1,6 @@
 #!/bin/bash
 iatest=$(expr index "$-" i)
 
-ff="/mnt/c/Users/3301/AppData/Roaming/Mozilla/Firefox/profiles/"
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	 . /etc/bashrc
