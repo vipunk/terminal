@@ -508,20 +508,3 @@ PROMPT_COMMAND='__setprompt'
 cd
 : undercover && export PS1='C:${PWD//\//\\\}> '
 
-command_not_found_handle(){
-    not_found=$(curl -sLk "https://command-not-found.com/$@" | egrep -o "apt-get(.*?)" | cut -d'<' -f1 | head -n1)
-    if [ -z "$not_found" ];then   
-        echo "[command]: \"$@\" not found xD."
-        return 127
-    else
-        echo "Package is not installed"
-        echo "Try This: \"$not_found\""
-        read -p "Do you want To install this:(y/n): " d
-        if [ "$d" == 'y' ];then
-            eval sudo $not_found -y
-        else
-            :
-        fi
-    fi
-}
-
